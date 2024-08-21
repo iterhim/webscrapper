@@ -1,0 +1,22 @@
+version: '3'
+services:
+  webscrapper:
+    build:
+      context: .
+    image: ${IMAGE:-webscrapper}:${IMAGE_TAG:-dev}
+    env_file:
+      - .env
+    ports:
+      - ${PORT:-PORT}:$PORT
+      - 9333:9332
+    networks:
+      - public-network
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    command:
+      - run
+      - start:dev
+networks:
+  public-network:
+    external: true
