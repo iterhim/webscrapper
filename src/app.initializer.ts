@@ -23,6 +23,8 @@ export function initDocs(app: NestExpressApplication) {
     .setDescription('Web scrapper API documentation')
     .setTitle('Web scrapper API')
     .setVersion(process.env.VERSION || '1.0.0')
+    .addApiKey({ in: 'header', name: config.server.apiKeyHeader, type: 'apiKey' }, 'ApiKey')
+
     .setExternalDoc('Postman Collection', `/${JSON_PATH}`)
     .build();
 
