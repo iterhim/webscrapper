@@ -6,13 +6,14 @@ dotenv.config({ path: './.env' });
 export interface IServerConfig {
   port: number;
   environment: string;
+  apiKeyHeader: string;
+  apiKey: string;
 }
 
 export interface IDocs {
   user: string;
   password: string;
 }
-
 
 export interface IConfiguration {
   server: IServerConfig;
@@ -23,6 +24,8 @@ export const config: IConfiguration = {
   server: {
     environment: process.env.NODE_ENV,
     port: parseInt(process.env.PORT, 10),
+    apiKeyHeader: process.env.API_KEY_HEADER,
+    apiKey: process.env.API_KEY,
   },
 
   docs: {
