@@ -4,6 +4,8 @@ import { GetMarylandItemByCodeUsecase } from './application/usecases/get-marylan
 import { MarylandServiceType } from './ports/maryland-service.port';
 import { MarylandServiceAdapter } from './secondary-adapters/maryland-service.adapter';
 import { GetMarylandItemByCodeWithResponseUsecase } from './application/usecases/controllers/get-maryland-item-by-code-with-response.usecase';
+import { GetMarylandItemDetailsByIdWithResponseUsecase } from './application/usecases/controllers/get-maryland-item-details-by-id-with-response.usecase';
+import { GetMarylandDetailsByIdUsecase } from './application/usecases/get-maryland-details-by-id.usecase';
 
 @Module({
   exports: [],
@@ -12,6 +14,8 @@ import { GetMarylandItemByCodeWithResponseUsecase } from './application/usecases
   providers: [
     GetMarylandItemByCodeUsecase,
     GetMarylandItemByCodeWithResponseUsecase,
+    GetMarylandItemDetailsByIdWithResponseUsecase,
+    GetMarylandDetailsByIdUsecase,
 
     {
       provide: MarylandServiceType,
